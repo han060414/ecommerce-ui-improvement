@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cải tiến UI - Tìm kiếm hình ảnh MyKingdom</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header chứa thanh tìm kiếm cải tiến -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>Vương Quốc Đồ Chơi</h1>
+            </div>
+            
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <!-- Icon kính lúp -->
+                    <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    
+                    <input type="text" class="search-input" placeholder="Nhập từ khóa để tìm kiếm (ví dụ: lắp ráp, mô hình...)">
+                    
+                    <!-- Icon Camera kích hoạt tìm kiếm hình ảnh -->
+                    <label for="image-search-upload" class="camera-icon" title="Tìm kiếm bằng hình ảnh">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                            <circle cx="12" cy="13" r="4"></circle>
+                        </svg>
+                    </label>
+                    <input type="file" id="image-search-upload" accept="image/*" hidden>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Khu vực danh sách sản phẩm -->
+    <main class="main-content">
+        <h2 class="section-title">Xu Hướng Sản Phẩm</h2>
+        <div class="product-grid">
+            
+            <!-- Sản phẩm 1 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="images/product-demo.jpg" alt="Đồ Chơi Lắp Ráp Xe Ben" onerror="this.src='https://placehold.co/400x400/eeeeee/333333?text=Anh+San+Pham'">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Đồ Chơi Lắp Ráp Xe Ben Kỹ Thuật (462 chi tiết)</h3>
+                    <div class="product-price">
+                        <span class="price-discount">844.500₫</span>
+                        <span class="price-original">1.689.000₫</span>
+                    </div>
+                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                </div>
+            </article>
+
+            <!-- Sản phẩm 2 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="images/product-demo.jpg" alt="Đồ Chơi Máy Nuôi Thú Ảo" onerror="this.src='https://placehold.co/400x400/eeeeee/333333?text=Anh+San+Pham'">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Đồ Chơi Máy Nuôi Thú Ảo Punirunes Thông Minh</h3>
+                    <div class="product-price">
+                        <span class="price-discount">1.499.000₫</span>
+                    </div>
+                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                </div>
+            </article>
+
+            <!-- Sản phẩm 3 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="images/product-demo.jpg" alt="Đồ Chơi Lắp Ráp Rồng" onerror="this.src='https://placehold.co/400x400/eeeeee/333333?text=Anh+San+Pham'">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Đồ Chơi Lắp Ráp Rồng Chiến Thần (232 chi tiết)</h3>
+                    <div class="product-price">
+                        <span class="price-discount">729.000₫</span>
+                    </div>
+                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                </div>
+            </article>
+
+            <!-- Sản phẩm 4 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="images/product-demo.jpg" alt="Thảm Chơi Piano" onerror="this.src='https://placehold.co/400x400/eeeeee/333333?text=Anh+San+Pham'">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Thảm Chơi Piano Phát Nhạc Kích Thích Giác Quan</h3>
+                    <div class="product-price">
+                        <span class="price-discount">2.309.000₫</span>
+                    </div>
+                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                </div>
+            </article>
+
+        </div>
+    </main>
+</body>
+</html>
