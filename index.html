@@ -5,9 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cải tiến UI - Tìm kiếm hình ảnh MyKingdom</title>
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- CSS bổ sung để xử lý 3 vấn đề UI mới -->
+    <style>
+        /* 1. Header & Icons */
+        .header-container { display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; background-color: #e3001b; color: white; }
+        .search-container { flex-grow: 1; max-width: 600px; margin: 0 20px; }
+        .header-actions { display: flex; gap: 15px; align-items: center; }
+        .action-btn { color: white; text-decoration: none; position: relative; display: flex; flex-direction: column; align-items: center; font-size: 12px; }
+        .cart-badge { position: absolute; top: -5px; right: -10px; background-color: #ffc107; color: #000; font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 10px; }
+        
+        /* 2. Menu Điều Hướng */
+        .main-nav { background-color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border-bottom: 1px solid #eee; }
+        .nav-list { display: flex; justify-content: center; list-style: none; margin: 0; padding: 0; gap: 30px; }
+        .nav-list li a { display: block; padding: 12px 15px; color: #333; text-decoration: none; font-weight: bold; font-size: 14px; text-transform: uppercase; }
+        .nav-list li a:hover { color: #e3001b; border-bottom: 2px solid #e3001b; }
+
+        /* 3. Đánh giá & Nút "Thêm vào giỏ" */
+        .product-rating { display: flex; align-items: center; gap: 5px; margin: 5px 0; font-size: 12px; color: #666; }
+        .stars { color: #ffc107; letter-spacing: 2px; }
+        .btn-add-cart { 
+            width: 100%; padding: 10px; margin-top: 10px;
+            background-color: #e3001b; color: white; /* Đổi thành nền đỏ, chữ trắng cho nổi bật */
+            border: none; border-radius: 4px; font-weight: bold; font-size: 14px;
+            cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px;
+            transition: background 0.3s;
+        }
+        .btn-add-cart:hover { background-color: #c40017; }
+        
+        /* Layout cơ bản cho grid (nếu style.css chưa có) */
+        .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 20px; }
+        .product-card { border: 1px solid #eee; border-radius: 8px; padding: 15px; background: #fff; display: flex; flex-direction: column;}
+        .product-image img { width: 100%; border-radius: 8px; }
+        .product-info { display: flex; flex-direction: column; flex-grow: 1; }
+        .product-name { font-size: 14px; margin: 10px 0; min-height: 40px; }
+        .product-price { margin-bottom: auto; }
+        .price-discount { color: #e3001b; font-weight: bold; font-size: 16px; margin-right: 10px;}
+        .price-original { color: #999; text-decoration: line-through; font-size: 13px; }
+    </style>
 </head>
 <body>
-    <!-- Header chứa thanh tìm kiếm cải tiến -->
     <header class="site-header">
         <div class="header-container">
             <div class="logo">
@@ -34,10 +71,31 @@
                     <input type="file" id="image-search-upload" accept="image/*" hidden>
                 </div>
             </div>
+
+            <!-- GIẢI QUYẾT VẤN ĐỀ 1: Thêm các icon chức năng trên Header -->
+            <div class="header-actions">
+                <a href="#" class="action-btn" title="Tài khoản">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </a>
+                <a href="#" class="action-btn" title="Giỏ hàng">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span class="cart-badge">3</span>
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Khu vực danh sách sản phẩm -->
+    <!-- GIẢI QUYẾT VẤN ĐỀ 2: Thêm thanh Menu điều hướng danh mục -->
+    <nav class="main-nav">
+        <ul class="nav-list">
+            <li><a href="#">Khuyến Mãi Hot</a></li>
+            <li><a href="#">Đồ Chơi Lắp Ráp</a></li>
+            <li><a href="#">Đồ Chơi Bé Trai</a></li>
+            <li><a href="#">Đồ Chơi Bé Gái</a></li>
+            <li><a href="#">Thương Hiệu</a></li>
+        </ul>
+    </nav>
+
     <main class="main-content">
         <h2 class="section-title">Xu Hướng Sản Phẩm</h2>
         <div class="product-grid">
@@ -49,11 +107,23 @@
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">Đồ Chơi Lắp Ráp Xe Ben Kỹ Thuật (462 chi tiết)</h3>
+                    
+                    <!-- GIẢI QUYẾT VẤN ĐỀ 3 (Phần 1): Thêm đánh giá sao và số lượng bán -->
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="sold-count">Đã bán 1.2k</span>
+                    </div>
+
                     <div class="product-price">
                         <span class="price-discount">844.500₫</span>
                         <span class="price-original">1.689.000₫</span>
                     </div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                    
+                    <!-- GIẢI QUYẾT VẤN ĐỀ 3 (Phần 2): Thêm icon vào nút, CSS lại màu nền nổi bật (xem thẻ style) -->
+                    <button class="btn-add-cart">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                        Thêm vào giỏ
+                    </button>
                 </div>
             </article>
 
@@ -64,10 +134,20 @@
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">Đồ Chơi Máy Nuôi Thú Ảo Punirunes Thông Minh</h3>
+                    
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="sold-count">Đã bán 845</span>
+                    </div>
+
                     <div class="product-price">
                         <span class="price-discount">1.499.000₫</span>
                     </div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                    
+                    <button class="btn-add-cart">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                        Thêm vào giỏ
+                    </button>
                 </div>
             </article>
 
@@ -78,10 +158,20 @@
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">Đồ Chơi Lắp Ráp Rồng Chiến Thần (232 chi tiết)</h3>
+                    
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="sold-count">Đã bán 3.4k</span>
+                    </div>
+
                     <div class="product-price">
                         <span class="price-discount">729.000₫</span>
                     </div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                    
+                    <button class="btn-add-cart">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                        Thêm vào giỏ
+                    </button>
                 </div>
             </article>
 
@@ -92,10 +182,20 @@
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">Thảm Chơi Piano Phát Nhạc Kích Thích Giác Quan</h3>
+                    
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="sold-count">Đã bán 210</span>
+                    </div>
+
                     <div class="product-price">
                         <span class="price-discount">2.309.000₫</span>
                     </div>
-                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                    
+                    <button class="btn-add-cart">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                        Thêm vào giỏ
+                    </button>
                 </div>
             </article>
 
