@@ -22,3 +22,14 @@ Tên công cụ: Gemini (Google) / ChatGPT (OpenAI)
 ## 6. Phần tôi hiểu và có thể giải thích
 - Hiểu cách hoạt động của Flexbox (`display: flex; align-items: center;`) để căn giữa các phần tử trong thanh header.
 - Nắm rõ cách dùng `position: absolute; right: 15px;` để cố định icon camera luôn nằm sát mép phải của thanh tìm kiếm bất chấp kích thước màn hình bị thu nhỏ hay phóng to.
+
+## 7. Hỗ trợ thực hành Buổi 2
+- Nhờ AI rà soát cấu trúc HTML5, hướng dẫn bổ sung `section` và kiểm tra thẻ `article`, `img`, `alt`.
+- Nhờ AI gợi ý tách khối `<style>` ra `css/style.css` và hợp nhất CSS bị trùng.
+- Nhờ AI hướng dẫn CSS Selector/Box Model, Flexbox, Grid, `:hover`, `:focus-visible`.
+- Nhờ AI gợi ý sửa bố cục sản phẩm ở màn hình 390px bằng media query `@media (max-width: 480px)`.
+
+## 8. Tự kiểm tra trước khi nộp
+- Đối chiếu mã nguồn thật với gợi ý AI, giữ nguyên 4 sản phẩm và ảnh của dự án.
+- Kiểm tra tại Chrome DevTools (1366px, 768px, 390px), chụp ảnh trước/sau và ghi kết quả kiểm thử vào báo cáo.
+- Kiểm tra lại `href="#"` và các nút giao diện tĩnh để không mô tả nhầm là chức năng JavaScript đã hoàn thiện.
